@@ -1,1 +1,7 @@
 /.metadata/
+
+# Database files
+*.db
+*.sqlite
+*.sql
+/postgres-data/
