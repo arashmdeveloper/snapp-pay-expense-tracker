@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+spring:
+  application: 
+    name: expense-service
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/expensetracker
+    username: snappay
+    password: snappay
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+feign:
+  client:
+    config:
+      user-service:
+        url: http://localhost:8081
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: DEBUG
+
+jwt:
+  secret: ewogICJqdGkiOiAiMTIzNDU2Nzg5MCIsCiAgInNlY3JldCI6ICJNeVN1cGVyU2VjcmV0S2V5MTIzISIKfQ==
+  expiration-ms: 3600000 # 1 hour

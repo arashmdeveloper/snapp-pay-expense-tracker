@@ -31,7 +31,8 @@ public class JwtService {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(issueDate))
                 .setExpiration(new Date(expiration))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .claim("roles", userDetails.getAuthorities())
+                .signWith(getSigningKey())
                 .compact();
         return JwtToken.builder()
         		.token(token)
@@ -42,8 +43,12 @@ public class JwtService {
         
     }
 
-    private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
-        return Keys.hmacShaKeyFor(keyBytes);
+    private Key getSigningKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY); // For Base64 keys
+        // OR
+        // byte[] keyBytes = secretKey.getBytes(StandardCharsets.UTF_8); // For raw strings
+        
+        // Explicitly specify HS256 (256-bit key)
+        return Keys.hmacShaKeyFor(keyBytes); // JJWT will handle algorithm internally
     }
 }

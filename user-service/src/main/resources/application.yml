@@ -19,7 +19,7 @@ spring:
         format_sql: true
 
 jwt:
-  secret: "87CBD112DEABA93FECA4A959ADB9B87CBD112DEABA93FECA4A959ADB9B"
+  secret: ewogICJqdGkiOiAiMTIzNDU2Nzg5MCIsCiAgInNlY3JldCI6ICJNeVN1cGVyU2VjcmV0S2V5MTIzISIKfQ==
   expiration-ms: 3600000 # 1 hour
 
 logging:
