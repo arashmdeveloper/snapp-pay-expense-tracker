@@ -11,15 +11,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ExpenseRequest {
-//	@NotBlank
+	@NotBlank(message = "title is required")
     private String title;
-//	@NotBlank
+	@NotBlank(message = "category is required")
 	private String category;
-//	@Positive
-//    @JsonFormat(shape = JsonFormat.Shape.STRING) 
+	@Positive(message = "amount should be positive value")
 	private BigDecimal amount;
 }
 

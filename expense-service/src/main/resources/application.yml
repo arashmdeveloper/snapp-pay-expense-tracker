@@ -16,12 +16,6 @@ spring:
       ddl-auto: update
     show-sql: true
 
-feign:
-  client:
-    config:
-      user-service:
-        url: http://localhost:8081
-
 logging:
   level:
     org.springframework.cloud.openfeign: DEBUG
