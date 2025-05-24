@@ -43,7 +43,7 @@ Both services are containerized and can be run using Docker Compose.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/snapp-pay-expense-tracker.git
+git clone https://github.com/arashmdeveloper/snapp-pay-expense-tracker.git
 cd snapp-pay-expense-tracker
 ```
 
